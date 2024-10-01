@@ -1,61 +1,102 @@
 #!/usr/bin/python3
-
-"""Create a class"""
+"""Defines a class Square"""
 
 
 class Square:
+    """Represents a square
+    Attributes:
+        __size (int): size of a side of the square
+    """
     def __init__(self, size=0):
-        """Initialize a square with a given size"""
+        """initializes the square
+        Args:
+            size (int): size of a side of the square
+        Returns:
+            None
+        """
         self.size = size
+
+    def area(self):
+        """calculates the square's area
+        Returns:
+            The area of the square
+        """
+        return (self.__size) ** 2
 
     @property
     def size(self):
-        """Getter method for size attribute"""
+        """getter of __size
+        Returns:
+            The size of the square
+        """
         return self.__size
 
     @size.setter
     def size(self, value):
-        """Setter method for size attribute"""
-        if not isinstance(value, (int, float)):
-            raise TypeError("size must be a number")
-        if value < 0:
-            raise ValueError("size must be >= 0")
-        self.__size = value
-
-    def area(self):
-        """Calculate and return the area of the square"""
-        return self.__size ** 2
-
-    def __eq__(self, other):
-        """Equality comparator based on square area"""
-        if isinstance(other, Square):
-            return self.area() == other.area()
-        return False
-
-    def __ne__(self, other):
-        """Inequality comparator based on square area"""
-        return not self.__eq__(other)
-
-    def __gt__(self, other):
-        """Greater than comparator based on square area"""
-        if isinstance(other, Square):
-            return self.area() > other.area()
-        return False
-
-    def __ge__(self, other):
-        """Greater than or equal comparator based on square area"""
-        if isinstance(other, Square):
-            return self.area() >= other.area()
-        return False
+        """setter of __size
+        Args:
+            value (int): the size of a size of the square
+        Returns:
+            None
+        """
+        if type(value) is not int:
+            raise TypeError("size must be an integer")
+        else:
+            if value < 0:
+                raise ValueError("size must be >= 0")
+            else:
+                self.__size = value
 
     def __lt__(self, other):
-        """Less than comparator based on square area"""
-        if isinstance(other, Square):
-            return self.area() < other.area()
-        return False
+        """Compare if square is less than another by area
+        Args:
+            other (Square): square to compare against
+        Returns:
+            True or False
+        """
+        return self.size < other.size
 
     def __le__(self, other):
-        """Less than or equal comparator based on square area"""
-        if isinstance(other, Square):
-            return self.area() <= other.area()
-        return False
+        """Compare if square is less than or equal to another by area
+        Args:
+            other (Square): square to compare against
+        Returns:
+            True or False
+        """
+        return self.size <= other.size
+
+    def __eq__(self, other):
+        """Compare if square is equal to another by area
+        Args:
+            other (Square): square to compare against
+        Returns:
+            True or False
+        """
+        return self.size == other.size
+
+    def __ne__(self, other):
+        """Compare if square is not equal to another by area
+        Args:
+            other (Square): square to compare against
+        Returns:
+            True or False
+        """
+        return self.size != other.size
+
+    def __ge__(self, other):
+        """Compare if square is greater than or equal to another by area
+        Args:
+            other (Square): square to compare against
+        Returns:
+            True or False
+        """
+        return self.size >= other.size
+
+    def __gt__(self, other):
+        """Compare if square is greater than another by area
+        Args:
+            other (Square): square to compare against
+        Returns:
+            True or False
+        """
+        return self.size > other.size
