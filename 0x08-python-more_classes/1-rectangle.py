@@ -1,27 +1,12 @@
 #!/usr/bin/python3
 
-"""Rectangle Class.
+"""Defines a Rectangle class."""
 
-This module contains an empty class that defines a rectangle.
-
-Usage Example:
-
-    Rectangle = __import__('0-rectangle').Rectangle
-
-    my_rectangle = Rectangle()
-    print(type(my_rectangle))
-    print(my_rectangle.__dict__)
-"""
 
 class Rectangle:
-    """creates private instance attributes by taking in two arguments.
+    """Represent a rectangle."""
 
-    Args:
-        width (int): horizontal dimension of rectangle, defaults to 0
-        height (int): vertical dimension of rectangle, defaults to 0
-
-    """
-     def __init__(self, width=0, height=0):
+    def __init__(self, width=0, height=0):
         """Initialize a new Rectangle.
 
         Args:
@@ -33,7 +18,7 @@ class Rectangle:
 
     @property
     def width(self):
-        """Set the width of the rectangle."""
+        """Get/set the width of the rectangle."""
         return self.__width
 
     @width.setter
